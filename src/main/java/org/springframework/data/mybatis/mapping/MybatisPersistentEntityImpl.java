@@ -97,16 +97,11 @@ public class MybatisPersistentEntityImpl<T> extends BasicPersistentEntity<T, Myb
 
     @Override
     public String getTableName() {
-        String tableName;
         Entity entity = getType().getAnnotation(Entity.class);
         if (null != entity && StringUtils.hasText(entity.table())) {
-            tableName = entity.table();
-        } else {
-            tableName = ParsingUtils.reconcatenateCamelCase(getType().getSimpleName(), "_");
+            return entity.table();
         }
-        if (null != entity && StringUtils.hasText(entity.schema())) {
-            tableName = entity.schema() + "." + tableName;
-        }
-        return tableName;
+
+        return ParsingUtils.reconcatenateCamelCase(getType().getSimpleName(), "_");
     }
 }

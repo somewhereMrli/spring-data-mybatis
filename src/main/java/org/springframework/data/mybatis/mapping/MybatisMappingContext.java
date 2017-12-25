@@ -35,7 +35,7 @@ public class MybatisMappingContext extends AbstractMappingContext<MybatisPersist
 
     @Override
     protected <T> MybatisPersistentEntityImpl<?> createPersistentEntity(TypeInformation<T> typeInformation) {
-        return new MybatisPersistentEntityImpl<T>(this,typeInformation, new ResultMapComparator());
+        return new MybatisPersistentEntityImpl<T>(this, typeInformation, new ResultMapComparator());
     }
 
     @Override
@@ -47,10 +47,10 @@ public class MybatisMappingContext extends AbstractMappingContext<MybatisPersist
      * (constructor?,id*,result*,association*,collection*,discriminator?)
      */
     private static final class ResultMapComparator implements
-            Comparator<org.springframework.data.mybatis.mapping.MybatisPersistentProperty>, Serializable {
+            Comparator<MybatisPersistentProperty>, Serializable {
 
         @Override
-        public int compare(org.springframework.data.mybatis.mapping.MybatisPersistentProperty o1, org.springframework.data.mybatis.mapping.MybatisPersistentProperty o2) {
+        public int compare(MybatisPersistentProperty o1, MybatisPersistentProperty o2) {
             if (o1.isIdProperty() && o2.isIdProperty()) {
                 return 0;
             }

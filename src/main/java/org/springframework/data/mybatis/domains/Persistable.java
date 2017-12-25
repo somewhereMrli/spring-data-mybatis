@@ -16,24 +16,21 @@
  *
  */
 
-package org.springframework.data.mybatis.mapping;
+package org.springframework.data.mybatis.domains;
 
-import org.springframework.data.mapping.Association;
-import org.springframework.data.mapping.PersistentProperty;
+import java.io.Serializable;
 
 /**
  * @author Jarvis Song
  */
-public class MybatisEmbeddedAssociation extends MybatisAssociation {
-    /**
-     * Creates a new {@link Association} between the two given {@link PersistentProperty}s.
-     *
-     * @param inverse
-     * @param obverse
-     */
-    public MybatisEmbeddedAssociation(MybatisPersistentProperty inverse, MybatisPersistentProperty obverse) {
-        super(inverse, obverse);
-    }
+public interface Persistable<ID extends Serializable> extends Serializable {
 
+    void preInssert();
+
+    void preUpdate();
+
+    ID getId();
+
+    boolean isNew();
 
 }

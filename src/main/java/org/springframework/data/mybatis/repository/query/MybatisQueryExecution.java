@@ -82,7 +82,7 @@ public abstract class MybatisQueryExecution {
         }
 
         return CONVERSION_SERVICE.canConvert(result.getClass(), requiredType)
-                ? CONVERSION_SERVICE.convert(result, requiredType) : result;
+            ? CONVERSION_SERVICE.convert(result, requiredType) : result;
     }
 
 

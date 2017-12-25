@@ -1,9 +1,9 @@
 package org.springframework.data.mybatis.domains;
 
-import static org.springframework.data.mybatis.annotations.Id.GenerationType.ASSIGNATION;
-
 import org.springframework.data.domain.Persistable;
 import org.springframework.data.mybatis.annotations.Id;
+
+import static org.springframework.data.mybatis.annotations.Id.GenerationType.ASSIGNATION;
 
 public class StringId implements Persistable<String> {
 
